@@ -15,9 +15,18 @@ body {
     padding-top: 100px;
 }
 
+.player {
+    color: #b71c1c;
+}
+
 h1, h2, h3, p, .container .second-grid {
     margin: 2rem auto;
     max-width: 750px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5em;
 }
 
 a:link, a:visited { 
@@ -45,39 +54,39 @@ a:hover {
 }
 
 #top-left {
-    border-right: 5px solid #e46119;
-    border-bottom: 5px solid #e46119;
+    border-right: 5px solid #0d47a1;
+    border-bottom: 5px solid #0d47a1;
 
 }
 
 #top-middle {
-     border-right: 5px solid #e46119;
-     border-bottom: 5px solid #e46119;
+     border-right: 5px solid #0d47a1;
+     border-bottom: 5px solid #0d47a1;
 }
 
 #top-right {
-     border-bottom: 5px solid #e46119;
+     border-bottom: 5px solid #0d47a1;
 }
 
 #middle-left {
-     border-right: 5px solid #e46119;
-      border-bottom: 5px solid #e46119;
+     border-right: 5px solid #0d47a1;
+      border-bottom: 5px solid #0d47a1;
 }
 
 #middle-middle {
-    border-right: 5px solid #e46119;
-     border-bottom: 5px solid #e46119;
+    border-right: 5px solid #0d47a1;
+     border-bottom: 5px solid #0d47a1;
 }
 
 #middle-right { 
-     border-bottom: 5px solid #e46119;
+     border-bottom: 5px solid #0d47a1;
 }
 
 #bottom-left {
-    border-right: 5px solid #e46119;
+    border-right: 5px solid #0d47a1;
 }
 
 #bottom-right {
-    border-left: 5px solid #e46119;
+    border-left: 5px solid #0d47a1;
     margin-left: -5px;
 }
