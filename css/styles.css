@@ -8,7 +8,7 @@ body {
     font-family: 'Whitney SSm A','Whitney SSm B',verdana,sans-serif;
     font-weight: 400;
     color: #222222;
-    padding: 0 1em;
+    padding: 0 0;
 }
 
 .page-content {
@@ -38,7 +38,7 @@ a:hover {
     width: 318px;
 }
 
-.top-row div, .second-row div {
+.top-row div, .second-row div, .third-row div {
     float: left;
     height: 106px;
     min-width: 106px;
@@ -57,4 +57,27 @@ a:hover {
 
 #top-right {
      border-bottom: 5px solid #e46119;
+}
+
+#middle-left {
+     border-right: 5px solid #e46119;
+      border-bottom: 5px solid #e46119;
+}
+
+#middle-middle {
+    border-right: 5px solid #e46119;
+     border-bottom: 5px solid #e46119;
+}
+
+#middle-right { 
+     border-bottom: 5px solid #e46119;
+}
+
+#bottom-left {
+    border-right: 5px solid #e46119;
+}
+
+#bottom-right {
+    border-left: 5px solid #e46119;
+    margin-left: -5px;
 }
