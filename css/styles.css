@@ -58,40 +58,39 @@ a:hover {
     min-width: 106px;
 }
 
-#top-left {
+.top-left {
     border-right: 5px solid #0d47a1;
     border-bottom: 5px solid #0d47a1;
-
 }
 
-#top-middle {
+.top-middle {
      border-right: 5px solid #0d47a1;
      border-bottom: 5px solid #0d47a1;
 }
 
-#top-right {
+.top-right {
      border-bottom: 5px solid #0d47a1;
 }
 
-#middle-left {
+.middle-left {
      border-right: 5px solid #0d47a1;
       border-bottom: 5px solid #0d47a1;
 }
 
-#middle-middle {
+.middle-middle {
     border-right: 5px solid #0d47a1;
      border-bottom: 5px solid #0d47a1;
 }
 
-#middle-right { 
+.middle-right { 
      border-bottom: 5px solid #0d47a1;
 }
 
-#bottom-left {
+.bottom-left {
     border-right: 5px solid #0d47a1;
 }
 
-#bottom-right {
+.bottom-right {
     border-left: 5px solid #0d47a1;
     margin-left: -5px;
 }
