@@ -4,7 +4,7 @@ var aiPlayerTurn = false;
 var board = [
     [null, null, null],
     [null, null, null],
-    [true, true, true]
+    [null, null, null]
 ]
 
 function getWinner(board) {
@@ -51,28 +51,62 @@ function getWinner(board) {
 }
 
 
+function recursiveMinMax() {
+    board.forEach(function loop(value) {
+        if (Array.isArray(value)) {
+            value.forEach(loop);
+            console.log(value);
+        }
 
+    });
+
+
+}
+
+
+function makeMove() {
+    recursiveMinMax();
+    aiPlayerTurn = false;
+}
 
 
 
 function updateMove() {
     var winner = getWinner(board);
-    if(winner !== null){
-        $('#indicator').text(' '); 
-         if(winner === 0){
-              $('#winner').text("O won!");
-         }
-         if(winner === 1){
-             $('#winner').text("X won!");
-         }
-         if(winner === -1){
-             $('#winner').text("It's a tie.");
-         }                    
+    if (winner !== null) {
+        $('#indicator').text(' ');
+        if (winner === 0) {
+            if (player === false) {
+                $('#winner').text("You won playing O's!");
+            }
+            else {
+                $('#winner').text("AI won playing O's.");
+            }
+        }
+        if (winner === 1) {
+            if (player === true) {  // player is X 
+                $('#winner').text("You won playing X's!");
+            }
+            else {
+                $('#winner').text("AI won playing X's.");
+            }
+        }
+        if (winner === -1) {
+            $('#winner').text("It's a tie.");
+        }
     }
-    else{
+    else {
         $('#indicator').text(aiPlayerTurn ? "AI's Turn" : "Your Turn");
-    }   
+        makeMove();
+    }
 }
+
+
+
+
+
+
+
 
 $(document).ready(function () {
 
@@ -99,7 +133,6 @@ $(document).ready(function () {
                 $(this).removeClass('rows');
                 aiPlayerTurn = true;
                 updateMove();
-                //   makeMove();
             }
             else {
                 board[row][col] = false; //set board to "O" at that locatio
@@ -107,7 +140,6 @@ $(document).ready(function () {
                 $(this).removeClass('rows');
                 aiPlayerTurn = true;
                 updateMove();
-                //   makeMove();
             }
         }
     });
