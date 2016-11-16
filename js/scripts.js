@@ -3,12 +3,11 @@ var player;
 var aiPlayerTurn = false;
 var board = [
     [null, null, null],
-    [null, null, null],
-    [null, null, null]
+    [true, false, null],
+    [null, null, false]
 ]
 
 function getWinner(board) {
-    console.log(board);
     vals = [true, false];  // check to see "X" true won or "O" false won
     var allNotNull = true; // if no squares are null it's a tie
     for (var v = 0; v < vals.length; v++) {
@@ -51,22 +50,31 @@ function getWinner(board) {
 }
 
 
-function recursiveMinMax() {
-    board.forEach(function loop(value) {
-        if (Array.isArray(value)) {
-            value.forEach(loop);
-            console.log(value);
-        }
 
-    });
-
-
+function getEmptySpaces() {
+    console.log(board);
+    var availableSpace = 0;
+    var arr = [];
+   for(var b = 0; b < 3; b++){
+       for(var c = 0; c < 3; c++){
+           if(board[b][c] === null){
+               availableSpace++;
+               arr.push([b, c])
+           }
+       }
+   }
+   console.log(availableSpace);
+   return  arr;
 }
 
 
+
 function makeMove() {
-    recursiveMinMax();
     aiPlayerTurn = false;
+    var state = getEmptySpaces();
+    console.log(state.length);
+    var choice = Math.floor(Math.random() * state.length);
+    console.log(choice);
 }
 
 
@@ -123,7 +131,6 @@ $(document).ready(function () {
     $('.rows').click(function () {
         var sh2 = $(this).find("h2");
         var cell = sh2.attr("id");
-        console.log(cell);
         var row = parseInt(cell[1])
         var col = parseInt(cell[2])
         if (!aiPlayerTurn) {
