@@ -3,8 +3,8 @@ var player;
 var aiPlayerTurn = false;
 var board = [
     [null, null, null],
-    [true, false, null],
-    [null, null, false]
+    [null, null, null],
+    [null, null, null]
 ]
 
 function getWinner(board) {
@@ -73,6 +73,10 @@ function makeMove() {
     var choice = Math.floor(Math.random() * state.length);
     console.log(choice);
     console.log(state[choice]);
+    var move = state[choice].join('');
+    var aIboardMove = document.getElementById('c' + move);
+    aIboardMove.textContent = "O";
+    
 }
 
 
