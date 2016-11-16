@@ -1,10 +1,9 @@
 <!doctype html>
 
-<html lang="en" ng-app="ticTacToe">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <script src="js/vendor/angular.min.js"></script>	
+    <meta charset="utf-8">	
     <title>Tic Tac Toe</title>
     <meta name="JavaScript Project" content="Tic Tac Toe">
     <meta name="Sara C" content="Tic Tac Toe">
@@ -13,40 +12,42 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <body>
     <div class="page-content">
-        <div class="container" ng-controller="ticTacToeController">
-            <button ng-click="applyNew()">Apply</button>
-            <div class="first-grid">
+        <div class="container">
+            <div class="first-grid" id="#effect">
                     <h1>Tic Tac Toe</h1>
                     <h3>Do you want to be X's or O's?</h3>
-                    <p><a href="#" ng-click="set( 'player', 'X')">I want to be X's.</a></p>
-                    <p><a href="#" ng-click="set('player', 'O')">I want to be O's.</a></p>
+                    <p><a href="#" id="X" >I want to be X's.</a></p>
+                    <p><a href="#"  id="O" >I want to be O's.</a></p>
 			</div>
              <div class="second-grid">
+                 <h3 id="indicator">It's your turn!</h3>
                  <div class="top-row">
-                    <div id="top-left"><h2  ng-model="state[0].value">{{state[0]}}</h2></div>
-                    <div id="top-middle"><h2 class="player" ng-model="state[1].value">{{state[1]}}</h2></div>
-                    <div id="top-right"><h2 ng-model="state[2].value">{{state[2]}}</h2></div>
+                    <div id="top-left"><h2></h2></div>
+                    <div id="top-middle"><h2 class="player"></h2></div>
+                    <div id="top-right"><h2></h2></div>
                  </div>
                   <div class="second-row">
-                    <div id="middle-left"><h2 ng-model="state[3].value">{{state[3]}}</h2></div>
-                    <div id="middle-middle"><h2 class="player" ng-model="state[4].value">{{state[4]}}</h2></div>
-                    <div id="middle-right"><h2 ng-model="state[5].value">{{state[5]}}</h2></div>
+                    <div id="middle-left"><h2></h2></div>
+                    <div id="middle-middle"><h2 class="player" ></h2></div>
+                    <div id="middle-right"><h2 ></h2></div>
                  </div>
                   <div class="third-row">
-                    <div id="bottom-left"><h2 ng-model="state[6].value">{{state[6]}}</h2></div>
-                    <div id="bottom-middle"><h2 ng-model="state[7].value">{{state[7]}}</h2></div>
-                    <div id="bottom-right"><h2 ng-model="state[8].value">{{state[8]}}</h2></div>
+                    <div id="bottom-left"><h2 ></h2></div>
+                    <div id="bottom-middle"><h2 ></h2></div>
+                    <div id="bottom-right"><h2 ></h2></div>
                  </div>
 			</div>
 		</div><!--close container-->	
-	</div>
-
-	<script type='application/javascript' src="js/vendor/jquery-3.1.1.min.js"></script>
+	</div>  
+   
     <script type='application/javascript' src="js/scripts.js"></script>
+
 
 </body>
 

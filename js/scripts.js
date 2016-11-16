@@ -1,14 +1,16 @@
-var app = angular.module('ticTacToe', []);
+$(document).ready(function () {
+    var player;
+    function showSecondGrid() {
+        $(".second-grid").show(); 
+    }
+    $("a").click(function () {
+        var id = this.id;
+        player = id === 'X' ? true : false; // player is true if "X" and false if "O"
+        $(".first-grid").hide("drop", { direction: "left" }, 2000, showSecondGrid);
+    });
 
-app.controller('ticTacToeController', function ($scope) {
-    $scope.state = ['X', ' ', 'O', 'X'];
-    $scope.moves = 0;   //how many moves AI player has made till this state
-    $scope.player = 'X'; // is AI X or O
 
-    $scope.applyNew = function () {
-        console.log('click');
-        $scope.state = ['X', ' ', 'O', 'X', 'X', 'X', 'X', 'X', ' '];
-    };
+
 
 
 });

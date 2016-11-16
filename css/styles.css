@@ -44,11 +44,12 @@ a:hover {
 }
 
 .first-grid {
-    display: none;
+    display: block;
 }
 
 .second-grid {
     width: 318px;
+    display: none;
 }
 
 .top-row div, .second-row div, .third-row div {
