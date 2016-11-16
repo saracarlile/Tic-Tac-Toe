@@ -53,18 +53,15 @@ function getWinner(board) {
 
 function getEmptySpaces() {
     console.log(board);
-    var availableSpace = 0;
-    var arr = [];
+    var availableSpaces = [];
    for(var b = 0; b < 3; b++){
        for(var c = 0; c < 3; c++){
            if(board[b][c] === null){
-               availableSpace++;
-               arr.push([b, c])
+               availableSpaces.push([b, c])
            }
        }
    }
-   console.log(availableSpace);
-   return  arr;
+   return  availableSpaces;
 }
 
 
@@ -75,6 +72,7 @@ function makeMove() {
     console.log(state.length);
     var choice = Math.floor(Math.random() * state.length);
     console.log(choice);
+    console.log(state[choice]);
 }
 
 
