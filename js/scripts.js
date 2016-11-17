@@ -49,18 +49,24 @@ function getWinner(board) {
     return null;  // return null if no winner yet
 }
 
+function showFirtGrid(){  // show first grid after reset
+   $('.first-grid').show();
+    $('#indicator').text("It's your turn!");
+    $('h2').text(' ');
+    $("h2").removeClass("player");
+}
 
 function resetBoard() {
     aiPlayerTurn = false;
-    $('#indicator').text("It's your turn!");
-    $('h2').text(' ');
+   
     board = [
         [null, null, null],
         [null, null, null],
         [null, null, null]
-    ]; 
-    $('button').remove();
-
+    ];
+    $('button').remove();  
+    $('.second-grid').hide('drop', { direction: 'left' }, 1000, showFirtGrid);
+   
 }
 
 function displayWinner(winner) {
@@ -125,6 +131,7 @@ function makeMove() {
     var winner = getWinner(board);
     if (winner !== null) {
         displayWinner(winner);
+
     }
 
 }
@@ -149,26 +156,25 @@ function updateMove() {
 
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     function showSecondGrid() {
         $('.second-grid').show();
     }
-    $('a').click(function() {
+    $('a').click(function () {
         var id = this.id;
         player = id === 'X' ? true : false; // player is true if "X" and false if "O"
         $('.first-grid').hide('drop', { direction: 'left' }, 2000, showSecondGrid);
     });
 
 
-    $('.rows').click(function() {
+    $('.rows').click(function () {
         var sh2 = $(this).find("h2");
         var cell = sh2.attr("id");
         var row = parseInt(cell[1])
         var col = parseInt(cell[2])
         if (!aiPlayerTurn) {
             if (board[row][col] === null) {
-                console.log("empty!");
                 if (player === true) {
                     board[row][col] = true;  //set board to "X" at that location
                     sh2.text('X').addClass('player');
