@@ -49,8 +49,8 @@ function getWinner(board) {
     return null;  // return null if no winner yet
 }
 
-function showFirtGrid(){  // show first grid after reset
-   $('.first-grid').show();
+function showFirtGrid() {  // show first grid after reset
+    $('.first-grid').show();
     $('#indicator').text("It's your turn!");
     $('h2').text(' ');
     $("h2").removeClass("player");
@@ -58,15 +58,15 @@ function showFirtGrid(){  // show first grid after reset
 
 function resetBoard() {
     aiPlayerTurn = false;
-   
+
     board = [
         [null, null, null],
         [null, null, null],
         [null, null, null]
     ];
-    $('button').remove();  
+    $('button').remove();
     $('.second-grid').hide('drop', { direction: 'left' }, 1000, showFirtGrid);
-   
+
 }
 
 function displayWinner(winner) {
@@ -133,7 +133,6 @@ function makeMove() {
         displayWinner(winner);
 
     }
-
 }
 
 
@@ -148,13 +147,6 @@ function updateMove() {
         makeMove();
     }
 }
-
-
-
-
-
-
-
 
 $(document).ready(function () {
 
