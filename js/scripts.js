@@ -78,7 +78,10 @@ function makeMove() {
     var char =  player ? "O" : "X";  // if player is true AI is 'O' if player is false AI is 'X'
     aIboardMove.textContent = char;
     aIboardMove.parentElement.className = "";
-    
+    var updateBoard =  player ? false : true ; // if player is true AI is false if player is false AI is true
+    var r = state[choice][0];  //row ai move
+    var c = state[choice][1];   //colum,n ai move
+    board[r][c] = updateBoard;
 }
 
 
@@ -89,26 +92,26 @@ function updateMove() {
         $('#indicator').text(' ');
         if (winner === 0) {
             if (player === false) {
-                $('#winner').text("You won playing O's!");
+                $('#indicator').text("You won playing O's!");
             }
             else {
-                $('#winner').text("AI won playing O's.");
+                $('#indicator').text("AI won playing O's.");
             }
         }
         if (winner === 1) {
             if (player === true) {  // player is X 
-                $('#winner').text("You won playing X's!");
+                $('#indicator').text("You won playing X's!");
             }
             else {
-                $('#winner').text("AI won playing X's.");
+                $('#indicator').text("AI won playing X's.");
             }
         }
         if (winner === -1) {
-            $('#winner').text("It's a tie.");
+            $('#indicator').text("It's a tie.");
         }
     }
     else {
-        $('#indicator').text(aiPlayerTurn ? "AI's Turn" : "Your Turn");
+        $('#indicator').text(' ');
         makeMove();
     }
 }
