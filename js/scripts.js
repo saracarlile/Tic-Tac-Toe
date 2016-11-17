@@ -75,7 +75,6 @@ function displayWinner(winner){
 
 
 function getEmptySpaces() {
-    console.log(board);
     var availableSpaces = [];
     for (var b = 0; b < 3; b++) {
         for (var c = 0; c < 3; c++) {
@@ -92,40 +91,21 @@ function getEmptySpaces() {
 function makeMove() {
     aiPlayerTurn = false;
     var state = getEmptySpaces();
-    console.log(state.length);
     var choice = Math.floor(Math.random() * state.length); //choose random empty square on board array for AI move
-    console.log(choice);
-    console.log(state[choice]);
     var move = state[choice].join('');
     var aIboardMove = document.getElementById('c' + move); // find ID of emptry square (h2)
     var char = player ? "O" : "X";  // if player is true AI is 'O' if player is false AI is 'X'
     aIboardMove.textContent = char;
-<<<<<<< baa1cc0bc74463ffa9bc803a26daedf2fe5e7fb0
     var idUse = '#c' + move;
-    $(idUse).parent().unbind(); //unbind click event
     var updateBoard =  player ? false : true ; // if player is true AI is false if player is false AI is true
-=======
     aIboardMove.parentElement.className = "";
     var updateBoard = player ? false : true; // if player is true AI is false if player is false AI is true
->>>>>>> fix clicking into spaces with values
     var r = state[choice][0];  //row ai move
     var c = state[choice][1];   //colum,n ai move
     board[r][c] = updateBoard;
     var winner = getWinner(board);
-    if (winner !== null) {
-<<<<<<< baa1cc0bc74463ffa9bc803a26daedf2fe5e7fb0
-         if (winner === 0) {
-            if (player === false) {
-                $('#indicator').text("You won playing O's!");
-            }
-            else {
-               $('indicator').text("AI won playing O's.");
-            }
-        }
-=======
-      displayWinner(winner);
->>>>>>> fix clicking into spaces with values
-
+    if (winner !== null) {    
+      displayWinner(winner);      
     }
 
 }
@@ -168,21 +148,6 @@ $(document).ready(function () {
         var row = parseInt(cell[1])
         var col = parseInt(cell[2])
         if (!aiPlayerTurn) {
-<<<<<<< baa1cc0bc74463ffa9bc803a26daedf2fe5e7fb0
-            if (player === true) {
-                board[row][col] = true;  //set board to "X" at that location
-                sh2.text('X').addClass('player');
-                $(this).unbind('click');
-                aiPlayerTurn = true;
-                updateMove();
-            }
-            else {
-                board[row][col] = false; //set board to "O" at that locatio
-                sh2.text('O').addClass('player');
-                 $(this).unbind('click');
-                aiPlayerTurn = true;
-                updateMove();
-=======
             if (board[row][col] === null) {
                 console.log("empty!");
                 if (player === true) {
@@ -199,7 +164,6 @@ $(document).ready(function () {
                     aiPlayerTurn = true;
                     updateMove();
                 }
->>>>>>> fix clicking into spaces with values
             }
         }
     });
@@ -210,5 +174,6 @@ $(document).ready(function () {
 
 });
 
-// thanks to this blog post for helping me to understand
-//minmax search https://blog.vivekpanyam.com/how-to-build-an-ai-that-wins-the-basics-of-minimax-search
+// credits - this blog post was helpful in setting up the tic tac toe board logic
+// although I didn't end up using the minmax search for the algorithm
+//https://blog.vivekpanyam.com/how-to-build-an-ai-that-wins-the-basics-of-minimax-search
