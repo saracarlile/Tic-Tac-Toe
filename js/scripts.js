@@ -82,6 +82,19 @@ function makeMove() {
     var r = state[choice][0];  //row ai move
     var c = state[choice][1];   //colum,n ai move
     board[r][c] = updateBoard;
+    var winner = getWinner(board);
+    if (winner !== null) {
+         if (winner === 0) {
+            if (player === false) {
+                documennt.getElementById('indicator').textContent("You won playing O's!");
+            }
+            else {
+               documennt.getElementById('indicator').textContent("AI won playing O's.");
+            }
+        }
+
+    }
+    
 }
 
 
