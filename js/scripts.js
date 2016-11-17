@@ -5,7 +5,7 @@ var board = [
     [null, null, null],
     [null, null, null],
     [null, null, null]
-]
+];
 
 function getWinner(board) {
     vals = [true, false];  // check to see "X" true won or "O" false won
@@ -50,26 +50,45 @@ function getWinner(board) {
 }
 
 
-function displayWinner(winner){
+function resetBoard() {
+    aiPlayerTurn = false;
+    $('#indicator').text("It's your turn!");
+    $('h2').text(' ');
+    board = [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null]
+    ]; 
+    $('button').remove();
+
+}
+
+function displayWinner(winner) {
     if (winner === 0) {
-            if (player === false) {
-                $('#indicator').text("You won playing O's!");
-            }
-            else {
-                $('#indicator').text("AI won playing O's.");
-            }
+        if (player === false) {
+            $('#indicator').text("You won playing O's!");
         }
-        if (winner === 1) {
-            if (player === true) {  // player is X 
-                $('#indicator').text("You won playing X's!");
-            }
-            else {
-                $('#indicator').text("AI won playing X's.");
-            }
+        else {
+            $('#indicator').text("AI won playing O's.");
+            aiPlayerTurn = true;  //make it so player can't add more to board
         }
-        if (winner === -1) {
-            $('#indicator').text("It's a tie.");
+    }
+    if (winner === 1) {
+        if (player === true) {  // player is X 
+            $('#indicator').text("You won playing X's!");
         }
+        else {
+            $('#indicator').text("AI won playing X's.");
+            aiPlayerTurn = true;  //make it so player can't add more to board
+        }
+    }
+    if (winner === -1) {
+        $('#indicator').text("It's a tie.");
+    }
+    var b = $('<button>Reset Game</button>');
+    $(".second-grid").append(b);
+    var el = document.querySelector('button');
+    el.addEventListener("click", resetBoard, false);
 
 }
 
@@ -97,15 +116,15 @@ function makeMove() {
     var char = player ? "O" : "X";  // if player is true AI is 'O' if player is false AI is 'X'
     aIboardMove.textContent = char;
     var idUse = '#c' + move;
-    var updateBoard =  player ? false : true ; // if player is true AI is false if player is false AI is true
+    var updateBoard = player ? false : true; // if player is true AI is false if player is false AI is true
     aIboardMove.parentElement.className = "";
     var updateBoard = player ? false : true; // if player is true AI is false if player is false AI is true
     var r = state[choice][0];  //row ai move
     var c = state[choice][1];   //colum,n ai move
     board[r][c] = updateBoard;
     var winner = getWinner(board);
-    if (winner !== null) {    
-      displayWinner(winner);      
+    if (winner !== null) {
+        displayWinner(winner);
     }
 
 }
@@ -115,7 +134,7 @@ function makeMove() {
 function updateMove() {
     var winner = getWinner(board);
     if (winner !== null) {
-         displayWinner(winner);
+        displayWinner(winner);
     }
     else {
         $('#indicator').text(' ');
@@ -130,19 +149,19 @@ function updateMove() {
 
 
 
-$(document).ready(function () {
+$(document).ready(function() {
 
     function showSecondGrid() {
         $('.second-grid').show();
     }
-    $('a').click(function () {
+    $('a').click(function() {
         var id = this.id;
         player = id === 'X' ? true : false; // player is true if "X" and false if "O"
         $('.first-grid').hide('drop', { direction: 'left' }, 2000, showSecondGrid);
     });
 
 
-    $('.rows').click(function () {
+    $('.rows').click(function() {
         var sh2 = $(this).find("h2");
         var cell = sh2.attr("id");
         var row = parseInt(cell[1])
