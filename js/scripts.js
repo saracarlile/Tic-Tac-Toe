@@ -77,7 +77,8 @@ function makeMove() {
     var aIboardMove = document.getElementById('c' + move); // find ID of emptry square (h2)
     var char =  player ? "O" : "X";  // if player is true AI is 'O' if player is false AI is 'X'
     aIboardMove.textContent = char;
-    aIboardMove.parentElement.className = "";
+    var idUse = '#c' + move;
+    $(idUse).parent().unbind(); //unbind click event
     var updateBoard =  player ? false : true ; // if player is true AI is false if player is false AI is true
     var r = state[choice][0];  //row ai move
     var c = state[choice][1];   //colum,n ai move
@@ -86,10 +87,10 @@ function makeMove() {
     if (winner !== null) {
          if (winner === 0) {
             if (player === false) {
-                documennt.getElementById('indicator').textContent("You won playing O's!");
+                $('#indicator').text("You won playing O's!");
             }
             else {
-               documennt.getElementById('indicator').textContent("AI won playing O's.");
+               $('indicator').text("AI won playing O's.");
             }
         }
 
@@ -157,14 +158,14 @@ $(document).ready(function () {
             if (player === true) {
                 board[row][col] = true;  //set board to "X" at that location
                 sh2.text('X').addClass('player');
-                $(this).removeClass('rows');
+                $(this).unbind('click');
                 aiPlayerTurn = true;
                 updateMove();
             }
             else {
                 board[row][col] = false; //set board to "O" at that locatio
                 sh2.text('O').addClass('player');
-                $(this).removeClass('rows');
+                 $(this).unbind('click');
                 aiPlayerTurn = true;
                 updateMove();
             }
