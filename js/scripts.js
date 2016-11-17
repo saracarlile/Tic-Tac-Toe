@@ -70,12 +70,14 @@ function makeMove() {
     aiPlayerTurn = false;
     var state = getEmptySpaces();
     console.log(state.length);
-    var choice = Math.floor(Math.random() * state.length);
+    var choice = Math.floor(Math.random() * state.length); //choose random empty square on board array for AI move
     console.log(choice);
     console.log(state[choice]);
     var move = state[choice].join('');
-    var aIboardMove = document.getElementById('c' + move);
-    aIboardMove.textContent = "O";
+    var aIboardMove = document.getElementById('c' + move); // find ID of emptry square (h2)
+    var char =  player ? "O" : "X";  // if player is true AI is 'O' if player is false AI is 'X'
+    aIboardMove.textContent = char;
+    aIboardMove.parentElement.className = "";
     
 }
 
