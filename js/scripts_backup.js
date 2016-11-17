@@ -60,7 +60,11 @@ function displayWinner(winner){
             }
         }
         if (winner === 1) {
+<<<<<<< Updated upstream
             if (player === true) {  // player is X
+=======
+            if (player === true) {  // player is X 
+>>>>>>> Stashed changes
                 $('#indicator').text("You won playing X's!");
             }
             else {
